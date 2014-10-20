@@ -46,9 +46,17 @@ Vagrant.configure("2") do |config|
       :nfs => true,
       :map_uid => 0,
       :map_gid => 0,
-     )
+    )
+    config.vm.synced_folder(
+      "../agov",
+      "/agov",
+      :nfs => true,
+      :map_uid => 0,
+      :map_gid => 0,
+    )
   else
     config.vm.synced_folder ".", "/vagrant"
+    config.vm.synced_folder "../agov", "/agov"
   end
 
   # Virtualbox provider configuration.

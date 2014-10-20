@@ -77,11 +77,14 @@ http://docs.vagrantup.com/v2
 
 WE REQUIRE THE "Vagrant Auto-network" PLUGIN AS MENTIONED ABOVE.
 
-## Drupal
+## Installation
 
 Adding agov - you need agov alongside this repo - from inside this repo:
 
 ```
+# composer install
+composer install --prefer-dist
+# setup agov
 cd ..
 # clone agov
 git clone git@github.com:previousnext/agov.git
@@ -90,29 +93,18 @@ cd agov
 phing
 # cd back to this project
 cd ../agov-local
-# composer install
-composer install --prefer-dist
-# vagrant
+# setup vagrant
 vagrant up
-# install drupal
-phing install
 # re build agov now there is a site installed
 cd ../agov
 # edit the site and make sure that build.properties contains correct database strings thus:
-```
-db.host=agov.dev
+app.uri='http://agov.dev'
+build.drupal.dir=${project.basedir}/../agov-local/app
+build.symlink.source=../../../agov
+db.name=agov
 db.username=agov
 db.password=agov
-db.database=agov
-build.drupal.dir=${project.basedir}/../agov-local/app
-```
+db.host=agov.dev
+# Then install with phing
 phing
-# reattach stale mounts
-cd ../agov-local
-```
-
-To install (warning will delete all files and database)
-
-```
-phing reinstall
 ```
