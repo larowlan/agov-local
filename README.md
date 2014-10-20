@@ -98,10 +98,17 @@ vagrant up
 phing install
 # re build agov now there is a site installed
 cd ../agov
+# edit the site and make sure that build.properties contains correct database strings thus:
+```
+db.host=agov.dev
+db.username=agov
+db.password=agov
+db.database=agov
+app.dir=${project.basedir}/../agov-local/app
+```
 phing
 # reattach stale mounts
 cd ../agov-local
-vagrant reload
 ```
 
 To install (warning will delete all files and database)
