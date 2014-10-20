@@ -1,9 +1,9 @@
-Base Drupal 7 Vagrant setup
+Base local agov Vagrant setup
 ===========================
 
 ## Overview
 
-Basic D7 Vagrant setup
+Basic local agov Vagrant setup
 
 ## Credits
 
@@ -19,11 +19,6 @@ Install required gems for theme development with
 
 ```
 bundle install --path vendor/bundle
-```
-
-Setup theme compass support by adding this to your build.properties
-```
-drupal.themename = "yourthemename"
 ```
 
 Build sass with one of
@@ -84,11 +79,23 @@ WE REQUIRE THE "Vagrant Auto-network" PLUGIN AS MENTIONED ABOVE.
 
 ## Drupal
 
-Adding Drupal:
+Adding agov - you need agov alongside this repo - from inside this repo:
 
 ```
-drush dl drupal
-mv drupal-7.{x} app
+cd ..
+# clone agov
+git clone git@github.com:previousnext/agov.git
+cd agov
+# setup agov
+phing
+# cd back to this project
+cd ../agov-local
+# composer install
+composer install --prefer-dist
+# vagrant
+vagrant up
+# install drupal
+phing install
 ```
 
 To install (warning will delete all files and database)

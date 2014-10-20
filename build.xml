@@ -4,7 +4,7 @@
                be overridden with project specific configuration.
 -->
 
-<project name="vd7" default="prepare" phingVersion="2.4.11">
+<project name="agov-local" default="prepare" phingVersion="2.4.11">
 
   <!--               -->
   <!--  Properties   -->
@@ -20,11 +20,11 @@
   <property name="custom.themedir" value="${project.basedir}/app/sites/all/themes/custom/${drupal.themename}" />
 
   <!-- Mysql -->
-  <property name="mysql.host" value="d7.dev" />
+  <property name="mysql.host" value="agov.dev" />
   <property name="mysql.port" value="3306" />
-  <property name="mysql.database" value="d7" />
-  <property name="mysql.user" value="d7" />
-  <property name="mysql.pass" value="d7" />
+  <property name="mysql.database" value="agov" />
+  <property name="mysql.user" value="agov" />
+  <property name="mysql.pass" value="agov" />
   <property name="mysql.queryString" value="mysql://${mysql.user}:${mysql.pass}@${mysql.host}/${mysql.database}" />
 
   <!-- Drush -->
@@ -85,8 +85,6 @@
 
     <!-- Install the site and simpletest -->
     <phingcall target="install" />
-    <phingcall target="simpletest:enable" />
-    <phingcall target="views_ui:enable" />
   </target>
 
   <!-- Install the Drupal site. -->
