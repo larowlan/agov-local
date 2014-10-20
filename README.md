@@ -86,7 +86,7 @@ cd ..
 # clone agov
 git clone git@github.com:previousnext/agov.git
 cd agov
-# setup agov
+# setup agov - this will fail
 phing
 # cd back to this project
 cd ../agov-local
@@ -96,6 +96,9 @@ composer install --prefer-dist
 vagrant up
 # install drupal
 phing install
+# re build agov now there is a site installed
+cd ../agov
+phing
 ```
 
 To install (warning will delete all files and database)

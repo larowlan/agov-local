@@ -7,7 +7,7 @@
 
 box      = 'precise32'
 url      = 'http://files.vagrantup.com/' + box + '.box'
-hostname = 'd7'
+hostname = 'agov'
 domain   = 'dev'
 cpus     = '1'
 ram      = '768'
