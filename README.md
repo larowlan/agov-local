@@ -99,6 +99,9 @@ phing install
 # re build agov now there is a site installed
 cd ../agov
 phing
+# reattach stale mounts
+cd ../agov-local
+vagrant reload
 ```
 
 To install (warning will delete all files and database)
