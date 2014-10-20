@@ -47,8 +47,16 @@ Vagrant.configure("2") do |config|
       :map_uid => 0,
       :map_gid => 0,
      )
+     config.vm.synced_folder(
+           "../drupal",
+           "/vagrant/app",
+           :nfs => true,
+           :map_uid => 0,
+           :map_gid => 0,
+          )
   else
     config.vm.synced_folder ".", "/vagrant"
+    config.vm.synced_folder "../drupal", "/vagrant/app"
   end
 
   # Virtualbox provider configuration.
