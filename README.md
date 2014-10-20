@@ -104,7 +104,7 @@ db.host=agov.dev
 db.username=agov
 db.password=agov
 db.database=agov
-app.dir=${project.basedir}/../agov-local/app
+build.dir=${project.basedir}/../agov-local/app
 ```
 phing
 # reattach stale mounts
